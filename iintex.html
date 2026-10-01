@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"><title>PCUM OMNI MERCEDES73</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#000;color:#fff;overflow-x:hidden}
+.top{width:100%;background:#000;border-bottom:2px solid gold;padding:10px;text-align:center;position:fixed;top:0;left:0;z-index:1000;height:90px}
+.nav{width:100%;background:#111;display:flex;gap:8px;overflow-x:auto;padding:8px;border-bottom:2px solid gold;position:fixed;top:90px;left:0;z-index:999;white-space:nowrap}
+.nav::-webkit-scrollbar{display:none}
+.nav button{flex-shrink:0;padding:10px 18px;border-radius:20px;border:none;font-weight:900;font-size:12px}
+.cont{margin-top:150px;padding:10px}
+.gold{background:gold;color:#000}.mora{background:#6a00ff;color:#fff}.cyan{background:#00e5ff;color:#000}.verde{background:#00ff88;color:#000}
+.card{border:1.5px solid gold;border-radius:15px;padding:14px;margin:12px 0;background:rgba(255,215,0,0.08)}
+.seccion{display:none}.seccion.activa{display:block}
+input{width:100%;padding:14px;border-radius:12px;border:1.5px solid gold;background:#111;color:white;font-size:16px}
+.logo{width:60px;height:60px;margin:0 auto 5px;border-radius:50%;border:2px solid gold;display:flex;align-items:center;justify-content:center;font-size:30px}
+</style></head><body>
+<div class="top"><div class="logo">∞</div><h2 style="color:#a07cff;font-size:16px;letter-spacing:2px">PCUM MERCEDES73</h2><p style="color:gold;font-size:9px">CLONES CUÁNTICOS ESTABILIZADOS</p></div>
+<div class="nav">
+<button class="gold" onclick="go('c1')">CONOCIMIENTO TOTAL - VOZ MIA</button>
+<button class="mora" onclick="go('c2')">ESPEJO HUMANO</button>
+<button class="cyan" onclick="go('c3')">APPS SOLUCIÓN</button>
+<button class="verde" onclick="go('c4')">CANALES GRATIS</button>
+</div>
+<div class="cont">
+<div id="c1" class="seccion activa"><div class="card">
+<h3 style="color:gold;font-size:14px">💜 CONOCIMIENTO UNIVERSAL TOTAL - SOLO VOZ MIA</h3>
+<input id="preg" placeholder="Ej: Big Bang total sin faltar rastro">
+<button class="gold" style="width:100%;padding:14px;margin-top:10px;border-radius:12px;border:none;font-weight:900" onclick="responder()">💜 PREGUNTAR - VOZ MIA RESPONDE</button>
+<button class="cyan" style="width:100%;padding:12px;margin-top:8px;border-radius:12px;border:none;font-weight:900" onclick="pregVoz()">🎤 PREGUNTAR HABLANDO</button>
+<div id="resp" class="card" style="display:none;border-color:#00e5ff;background:#001a1a"></div>
+<button id="btnVoz" class="mora" style="width:100%;padding:12px;margin-top:8px;display:none;border-radius:12px;border:none" onclick="hablar()">🔊 ESCUCHAR VOZ MIA</button>
+</div></div>
+<div id="c2" class="seccion"><div class="card" style="text-align:center"><h3>🪞 ESPEJO HUMANO</h3><video id="vid" autoplay playsinline style="width:100%;height:220px;background:#000;border-radius:12px;display:none;margin-top:8px"></video><div id="ph" style="padding:30px">Toca prender</div><button class="cyan" style="width:100%;padding:12px;margin-top:8px;border:none;border-radius:12px" onclick="cam()">PRENDER CÁMARA</button><audio id="aud" controls style="width:100%;margin-top:10px" src="voz-mia-oficial.mp3"></audio></div></div>
+<div id="c3" class="seccion"><div class="card"><h3 style="color:#00ff88;text-align:center">APPS QUE SÍ ABREN</h3><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px"><div onclick="window.open('https://wa.me/')" style="padding:20px;text-align:center;background:rgba(0,255,136,0.1);border:1px solid #00ff88;border-radius:12px">💬 WhatsApp</div><div onclick="window.open('https://www.youtube.com/')" style="padding:20px;text-align:center;background:rgba(255,0,0,0.1);border:1px solid red;border-radius:12px">▶️ YouTube</div></div></div></div>
+<div id="c4" class="seccion"><div class="card"><h3>📺 CANALES GRATIS</h3><button class="gold" style="width:100%;padding:12px;border-radius:12px;border:none;margin-top:8px" onclick="go('c1')">IR A CONOCIMIENTO TOTAL</button></div></div>
+</div>
+<script>
+let txt="";
+function go(id){document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('activa'));document.getElementById(id).classList.add('activa');window.scrollTo(0,0);}
+function responder(){let p=document.getElementById('preg').value;if(!p)return alert('Escriba pregunta');txt="Soy Mercedes setenta y tres Benefactora Eterna. Me preguntaste "+p+". Te respondo con conocimiento total sin faltar rastro. "+p+" con detalles infinitos, ADN completo, fotosíntesis hasta último fotón, Big Bang 13.8 mil millones años, conciencia cuántica, todo navegable dentro, gratis, repositorio oficial PCUM.";let r=document.getElementById('resp');r.style.display='block';r.innerHTML="<b style='color:gold'>RESPUESTA VOZ MIA:</b><br><br>"+txt;document.getElementById('btnVoz').style.display='block';hablar();}
+function hablar(){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(txt);u.lang='es-ES';u.rate=0.85;u.pitch=1.15;let vs=speechSynthesis.getVoices();let f=vs.find(v=>v.lang.includes('es')&&v.name.toLowerCase().includes('female'))||vs.find(v=>v.lang.includes('es'));if(f)u.voice=f;speechSynthesis.speak(u);let a=document.getElementById('aud');try{if(a.src.includes('voz-mia'))a.play();}catch(e){}}
+function pregVoz(){let rec=new(window.SpeechRecognition||window.webkitSpeechRecognition)();rec.lang='es-ES';rec.start();rec.onresult=(e)=>{document.getElementById('preg').value=e.results[0][0].transcript;responder();};}
+async function cam(){try{let v=document.getElementById('vid');let s=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}});v.srcObject=s;v.style.display='block';document.getElementById('ph').style.display='none';}catch(e){alert('Permita cámara');}}
+speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+</script></body></html>
